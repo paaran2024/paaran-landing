@@ -1,0 +1,31 @@
+# GitLab CI용 파일
+# Jenkins DiiD issue가 지속적으로 발생하였기에 변경
+# Test 과정이 있어야 할 것 같은데... 일단 어캐 하는지 모르니 보류
+
+# Docker 23 밑일 경우 docker-compose 적용 불가
+image: docker:23.0.5
+
+services:
+  - docker:23.0.5-dind
+
+stages:
+  - CI
+
+variables:
+  DOCKER_IMAGE: "junwoo5914/paaran"
+  DOCKER_DRIVER: "overlay2"
+
+before_script:
+  # Docker Hub 로그인 (Variable은 GitLab env에 저장)
+  - echo "$DOCKERHUB_PASSWORD" | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
+
+build-n-push:
+  # GitLab Hook -> project build -> DockeHub Push
+  stage: CI
+  script:
+    # ${CI_COMMIT_REF_NAME}는 GitLab 내장 변수
+    # 1. Nginx 이미지 빌드 및 푸시
+    # 리버스 프록싱은 ingress가, Nginx는 서빙만 담당
+    - docker compose build web
+    - docker tag paaran-web:latest "${DOCKER_IMAGE}:web-${CI_COMMIT_REF_NAME}"
+    - docker push "${DOCKER_IMAGE}:web-${CI_COMMIT_REF_NAME}"
