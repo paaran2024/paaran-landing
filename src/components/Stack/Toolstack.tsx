@@ -13,7 +13,7 @@ import {
 } from "react-icons/si";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
-function Toolstack({ handleScrollToSection }) {
+function Toolstack({ handleScrollToSection }: { handleScrollToSection: (id: string) => void }) {
   const tools = [
     { icon: <SiVisualstudiocode />, name: "VSCode" },
     { icon: <SiGit />, name: "Git" },

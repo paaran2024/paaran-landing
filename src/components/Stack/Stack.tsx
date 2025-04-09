@@ -7,7 +7,8 @@ import Toolstack from "./Toolstack";
 import { AiOutlineArrowDown } from "react-icons/ai";
 
 function Stack() {
-  const handleScrollToSection = (id) => {
+
+  const handleScrollToSection = (id: string) => {
     const targetElement = document.getElementById(id);
     if (!targetElement) return;
 

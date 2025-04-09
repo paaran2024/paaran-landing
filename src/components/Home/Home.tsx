@@ -1,7 +1,6 @@
 // 241105
 // 첫화면 첫번째 페이지
 
-import React from "react";
 import styled, { css } from "styled-components";
 import Home2 from "./Home2";
 import { AiOutlineArrowDown } from "react-icons/ai";

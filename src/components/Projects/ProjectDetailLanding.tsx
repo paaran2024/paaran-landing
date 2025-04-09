@@ -2,34 +2,21 @@ import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import ProjectCard from "./ProjectCards";
 
-export const ProjectDetailCourse = () => {
+export const ProjectDetailLanding = () => {
   return (
-    <S.Container>
-      <S.Content>
-        <S.ContentSection>
-          <S.PostContainer>
-            <S.PostHeader>
-              <S.PostDetailsLeft>
-                <ProjectCard
-                  imgPath={"/Project/course.png"}
-                  isApp={true}
-                  title="파아란 코스"
-                  description="GPX 파일 공유 서비스"
-                  webLink="https://course.paaran.com/"
-                  playStoreLink="https://play.google.com/store/apps/details?id=com.paaran.course.twa"
-                  appStoreLink="https://apps.apple.com/app/id123456789"
-                />
-              </S.PostDetailsLeft>
-              <S.PostDetailsRight></S.PostDetailsRight>
-            </S.PostHeader>
-          </S.PostContainer>
-        </S.ContentSection>
-      </S.Content>
-    </S.Container>
+
+    <ProjectCard
+      imgPath={"/Project/landing.png"}
+      isApp={false}
+      title="파아란 랜딩 페이지"
+      description=""
+      webLink="https://paaran.com/"
+    />
+
   );
 };
 
-export default ProjectDetailCourse;
+export default ProjectDetailLanding;
 
 export const S = {
   Container: styled.div`

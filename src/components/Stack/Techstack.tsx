@@ -15,7 +15,7 @@ import { SiPostgresql, SiFastapi, SiApachekafka } from "react-icons/si";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import styled from "styled-components";
 
-function Techstack({ handleScrollToSection }) {
+function Techstack({ handleScrollToSection }: { handleScrollToSection: (id: string) => void }) {
   const techStack = [
     { icon: <DiHtml5 />, name: "HTML" },
     { icon: <DiCss3 />, name: "CSS" },
