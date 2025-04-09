@@ -20,8 +20,6 @@ git pull origin main
 
 git checkout -b {본인 식별자}
 
-cd service
-
 npm i
 
 npm start
