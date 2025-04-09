@@ -1,5 +1,4 @@
-import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import { S } from "./Techstack";
 import { IoLogoGitlab } from "react-icons/io5";
 import {

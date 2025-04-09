@@ -1,24 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
-import { AiOutlineHome, AiFillGithub } from "react-icons/ai";
+import { AiOutlineHome } from "react-icons/ai";
 import { GrTechnology } from "react-icons/gr";
 import { RiCodeSSlashLine } from "react-icons/ri";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
-  const [navColour, updateNavbar] = useState(false);
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
-    }
-  }
-
-  window.addEventListener("scroll", scrollHandler);
   return (
     <Navbar expanded={expand} fixed="top" expand="md" as={S.Navbar}>
       <Container>

@@ -1,10 +1,9 @@
-import React from "react";
 import styled from "styled-components";
-import { AiFillGithub, AiFillGitlab } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
 
 function Footer() {
-  let date = new Date();
-  let year = date.getFullYear();
+  const date = new Date();
+  const year = date.getFullYear();
   return (
     <S.Footer>
       <S.FooterContent>
