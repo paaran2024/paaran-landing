@@ -28,7 +28,7 @@ jobs:
         run: echo "$DOCKERHUB_PASSWORD" | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
 
       - name: Build Docker images
-        run: docker compose build
+        run: docker build -t paaran-web:latest -f Dockerfile .
 
       - name: Tag and push Docker images
         run: |
