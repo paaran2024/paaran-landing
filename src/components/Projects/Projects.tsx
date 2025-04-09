@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
 import ProjectDetailLanding from "./ProjectDetailLanding";
@@ -6,7 +6,7 @@ import ProjectDetailCourse from "./ProjectDetailCourse";
 import ProjectDetailUOS from "./ProjectDetailUOS";
 
 function Projects() {
-  const handleScrollToSection = (id) => {
+  const handleScrollToSection = (id: string) => {
     const targetElement = document.getElementById(id);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: "smooth" });
@@ -114,6 +114,7 @@ const S = {
     justify-content: center;
     padding: 60px 20px;
     box-sizing: border-box;
+    gap: 40px;
 
     /* 배경 색상을 다르게 주거나 배경 이미지를 지정할 수도 있음 */
     &:nth-of-type(1) {

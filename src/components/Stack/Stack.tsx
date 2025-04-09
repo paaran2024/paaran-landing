@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, Row } from "react-bootstrap";
+
+import { Container } from "react-bootstrap";
 import styled from "styled-components";
 import Techstack from "./Techstack";
 import DevStack from "./DevStack";
@@ -7,7 +7,8 @@ import Toolstack from "./Toolstack";
 import { AiOutlineArrowDown } from "react-icons/ai";
 
 function Stack() {
-  const handleScrollToSection = (id) => {
+
+  const handleScrollToSection = (id: string) => {
     const targetElement = document.getElementById(id);
     if (!targetElement) return;
 

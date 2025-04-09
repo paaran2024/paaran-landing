@@ -1,5 +1,5 @@
-import React from "react";
-import { Col, Row } from "react-bootstrap";
+
+import { Row } from "react-bootstrap";
 import { S } from "./Techstack";
 import {
   SiVisualstudiocode,
@@ -11,9 +11,9 @@ import {
   SiDiscord,
   SiFigma,
 } from "react-icons/si";
-import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 
-function Toolstack({ handleScrollToSection }) {
+function Toolstack({ handleScrollToSection }: { handleScrollToSection: (id: string) => void }) {
   const tools = [
     { icon: <SiVisualstudiocode />, name: "VSCode" },
     { icon: <SiGit />, name: "Git" },

@@ -1,14 +1,25 @@
-import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { IoLogoGooglePlaystore, IoLogoAppleAppstore } from "react-icons/io5";
 
-function ProjectCards(props) {
+function ProjectCards(props: {
+  imgPath: string;
+  title: string;
+  description: string;
+  webLink?: string;
+  playStoreLink?: string;
+  appStoreLink?: string;
+  isApp?: boolean;
+}) {
   return (
-    <Card className="project-card-view">
+    <Card className="project-card-view" style={{ width: "250px" }}>
       <Card.Img variant="top" src={props.imgPath} alt="card-img" />
-      <Card.Body>
+      <Card.Body style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text style={{ textAlign: "justify" }}>
           {props.description}

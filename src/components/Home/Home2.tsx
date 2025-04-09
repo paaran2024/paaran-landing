@@ -1,8 +1,7 @@
 // 241105
 // 첫화면 두번째 페이지
 
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import styled from "styled-components";
 
 function Home2() {

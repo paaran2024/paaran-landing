@@ -1,5 +1,4 @@
-import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import { S } from "./Techstack";
 import { IoLogoGitlab } from "react-icons/io5";
 import {
@@ -18,7 +17,7 @@ import {
 } from "react-icons/si";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
-function DevStack({ handleScrollToSection }) {
+function DevStack({ handleScrollToSection }: { handleScrollToSection: (id: string) => void }) {
   const devStack = [
     { icon: <SiDocker />, name: "Docker" },
     { icon: <SiKubernetes />, name: "Kubernetes" },

@@ -21,7 +21,7 @@ RUN GENERATE_SOURCEMAP=false npm run build
 FROM nginx:stable
 RUN rm -f /etc/nginx/nginx.conf
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=builder /usr/src/app/react_client/build /usr/share/nginx/html
+COPY --from=builder /usr/src/app/react_client/dist /usr/share/nginx/html
 
 # Nginx 실행
 CMD ["nginx", "-g", "daemon off;"]
