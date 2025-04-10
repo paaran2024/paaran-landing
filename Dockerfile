@@ -9,7 +9,7 @@ FROM node:lts-slim AS builder
 # react 파일 빌드
 WORKDIR /usr/src/app/react_client
 COPY ./package*.json ./
-RUN npm ci --silent --only=production
+RUN npm ci --silent
 COPY . .
 
 # 빌드 최적화 
