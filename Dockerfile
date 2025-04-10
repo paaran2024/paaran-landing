@@ -1,6 +1,6 @@
 ##### Client Part #####
 # LTS 버전의 node 사용
-FROM node:lts AS builder
+FROM node:lts-slim AS builder
 
 # workdirectory를 /usr/src/app/react_modules 경로로 설정
 # COPY <local> <container>  :  react 파트에 package를 /app/react_modules에 올림
