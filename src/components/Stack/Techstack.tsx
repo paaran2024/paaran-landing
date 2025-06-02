@@ -1,4 +1,3 @@
-
 import { Col, Row } from "react-bootstrap";
 import {
   DiHtml5,
@@ -11,19 +10,31 @@ import {
   DiRedis,
   DiNginx,
 } from "react-icons/di";
-import { SiPostgresql, SiFastapi, SiApachekafka } from "react-icons/si";
+import {
+  SiPostgresql,
+  SiFastapi,
+  SiApachekafka,
+  SiNestjs,
+  SiTypescript,
+} from "react-icons/si";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import styled from "styled-components";
 
-function Techstack({ handleScrollToSection }: { handleScrollToSection: (id: string) => void }) {
+function Techstack({
+  handleScrollToSection,
+}: {
+  handleScrollToSection: (id: string) => void;
+}) {
   const techStack = [
     { icon: <DiHtml5 />, name: "HTML" },
     { icon: <DiCss3 />, name: "CSS" },
     { icon: <DiJava />, name: "Java" },
     { icon: <DiJavascript1 />, name: "JavaScript" },
+    { icon: <SiTypescript />, name: "TypeScript" },
     { icon: <DiPython />, name: "Python" },
     { icon: <DiReact />, name: "React.js" },
     { icon: <DiNodejs />, name: "Node.js" },
+    { icon: <SiNestjs />, name: "Nest.js" },
     { icon: <SiFastapi />, name: "FastAPI" },
     { icon: <SiPostgresql />, name: "PostgreSQL" },
     { icon: <SiApachekafka />, name: "Kafka" },
