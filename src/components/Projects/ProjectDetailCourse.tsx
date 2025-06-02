@@ -3,7 +3,6 @@ import ProjectCard from "./ProjectCards";
 
 export const ProjectDetailCourse = () => {
   return (
-
     <ProjectCard
       imgPath={"/Project/course.png"}
       isApp={true}
@@ -11,9 +10,7 @@ export const ProjectDetailCourse = () => {
       description="GPX 파일 공유 서비스"
       webLink="https://course.paaran.com/"
       playStoreLink="https://play.google.com/store/apps/details?id=com.paaran.course.twa"
-      appStoreLink="https://apps.apple.com/app/id123456789"
     />
-
   );
 };
 
