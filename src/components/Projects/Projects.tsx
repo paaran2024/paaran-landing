@@ -1,4 +1,3 @@
-
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
 import ProjectDetailLanding from "./ProjectDetailLanding";
@@ -45,9 +44,6 @@ function Projects() {
           </S.ScrollButton>
         </S.ButtonWrapper>
 
-        <h1 className="project-heading">
-          <strong className="important">언어 • 프레임워크</strong>
-        </h1>
         <ProjectDetailLanding />
 
         <S.ButtonWrapper>
@@ -65,9 +61,6 @@ function Projects() {
           </S.ScrollButton>
         </S.ButtonWrapper>
 
-        <h1 className="project-heading">
-          <strong className="important">DevOps • 인프라</strong>
-        </h1>
         <ProjectDetailCourse />
 
         <S.ButtonWrapper>
@@ -85,9 +78,6 @@ function Projects() {
             ↑ 파아란시대
           </S.ScrollButton>
         </S.ButtonWrapper>
-        <h1 className="project-heading">
-          <strong className="important">협업 • 생산성</strong>
-        </h1>
         <ProjectDetailUOS />
       </S.SectionWrapper>
     </S.Container>

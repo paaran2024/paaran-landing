@@ -1,132 +1,58 @@
+import React from 'react';
+import ProjectDetail from './ProjectDetail';
 
-import styled from "styled-components";
-import ProjectCard from "./ProjectCards";
+const uosData = {
+  imageSrc: '/Project/uos.png',
+  imageAlt: 'UOS 교통정보 프로젝트 대표 이미지',
+  serviceName: '서비스명: UOS 교통정보',
+  description: '내용: 서울시립대학교 주변 실시간 교통 상황 및 버스 도착 정보를 제공하여 학생 및 교직원의 편의를 돕는 서비스입니다.',
+  links: [
+    {
+      type: 'app-store',
+      href: '#',
+    },
+  ],
+  teamMembers: [
+    {
+      name: '박정보',
+      photoUrl: 'https://via.placeholder.com/150/17A2B8/FFFFFF?text=DA',
+      role: 'Data Analyst',
+      detailedRole: '공공데이터 수집, 정제 및 분석 담당',
+      link: '#',
+      email: 'data@example.com',
+      activityPeriod: '2024.03 - 2024.05',
+    },
+    {
+      name: '최서버',
+      photoUrl: 'https://via.placeholder.com/150/343A40/FFFFFF?text=BE',
+      role: 'Backend Developer',
+      detailedRole: '데이터 제공을 위한 API 서버 개발',
+      link: '#',
+      email: 'server@example.com',
+      activityPeriod: '2024.03 - 2024.05',
+    },
+  ],
+  timeline: [
+    {
+      date: '2024년 3월',
+      title: '기획 및 데이터 수집',
+      description: '서울시 공공데이터 포털 API 연동 및 데이터 수집.',
+    },
+    {
+      date: '2024년 4월',
+      title: '핵심 기능 개발',
+      description: '실시간 버스 도착 정보 및 주변 교통상황 표시 기능 개발.',
+    },
+    {
+      date: '2024년 5월',
+      title: '내부 테스트 및 출시',
+      description: '교내 학생 대상 베타 테스트 및 앱 스토어 출시 준비.',
+    },
+  ],
+};
 
-export const ProjectDetailUOS = () => {
-  return (
-
-    <ProjectCard
-      imgPath={"/Project/uos.png"}
-      isApp={true}
-      title="파아란 시대"
-      description=""
-      webLink="https://uos.paaran.com/"
-      playStoreLink="https://play.google.com/store/apps/details?id=com.appmysite.app615456"
-      appStoreLink="https://apps.apple.com/app/id123456789"
-    />
-
-  );
+const ProjectDetailUOS = () => {
+  return <ProjectDetail {...uosData} />;
 };
 
 export default ProjectDetailUOS;
-
-export const S = {
-  Container: styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-  `,
-
-  Content: styled.div`
-    width: 80%;
-    height: 100%;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-
-    @media (max-width: 900px) {
-      width: 100%;
-      height: 100%;
-      max-width: none;
-      max-height: none;
-      border-radius: 0;
-      right: -100%;
-      animation: slideInFromRight 0.3s ease-out forwards;
-    }
-
-    @keyframes slideInFromRight {
-      from {
-        right: -100%;
-      }
-      to {
-        right: 0;
-      }
-    }
-  `,
-
-  PostDetailsLeft: styled.div`
-    display: flex;
-    align-items: center;
-    position: relative;
-  `,
-
-  ContentSection: styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 25px;
-
-    @media (max-width: 900px) {
-      height: auto;
-      justify-content: flex-start;
-      flex-direction: column;
-      overflow-x: hidden;
-      overflow-y: auto;
-      padding-top: 65px;
-
-      /* 스크롤바 숨기기 */
-      &::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
-      }
-
-      -ms-overflow-style: none; /* IE and Edge */
-      scrollbar-width: none; /* Firefox */
-    }
-  `,
-
-  PostContainer: styled.div`
-    width: 65%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-
-    border-right: 1px solid #e4e7eb;
-    padding-right: 15px;
-
-    @media (max-width: 900px) {
-      width: 100%;
-      height: auto;
-      border-right: none;
-      border-bottom: 1px solid #e4e7eb;
-      justify-content: flex-start;
-      padding: 0px;
-      padding-bottom: 20px;
-      margin-bottom: 10px;
-    }
-  `,
-
-  PostHeader: styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 30px;
-    width: 100%;
-
-    @media (max-width: 900px) {
-      height: 50px;
-    }
-  `,
-
-  PostDetailsRight: styled.div`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  `,
-};
