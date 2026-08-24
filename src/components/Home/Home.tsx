@@ -1,86 +1,92 @@
-// 241105
-// 첫화면 첫번째 페이지
-
 import styled, { css } from "styled-components";
 import Home2 from "./Home2";
 import { AiOutlineArrowDown } from "react-icons/ai";
 
 function Home() {
   const handleScrollDown = () => {
-    const nextSection = document.getElementById("next-section");
+    const nextSection = document.getElementById("intro-detail");
     if (nextSection) {
-      // const yOffset = -40; // 이게 정석
-      const yOffset = -35; // 이건 아래 footer 보일려고 끝까지 내린거
-      const y =
-        nextSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      const navBar = document.querySelector("nav.navbar");
+      const navHeight =
+        navBar instanceof HTMLElement ? navBar.offsetHeight : 60;
+      const targetElementTop =
+        nextSection.getBoundingClientRect().top + window.pageYOffset;
 
-      window.scrollTo({ top: y, behavior: "smooth" });
+      window.scrollTo({
+        top: targetElementTop - navHeight,
+        behavior: "smooth",
+      });
     }
   };
 
   return (
     <S.HomeSection>
-      <S.HomeContainer>
-        <div
-          data-aos="fade-down" // 원하는 AOS 효과
-          data-aos-duration="1500" // 애니메이션 시간
-        >
-          <S.Title>파아란 | PAARAN</S.Title>
-          <S.SubTitle>시대를 변화시킬 새로운 물결</S.SubTitle>
-        </div>
-        {/* Scroll Down 버튼/화살표 */}
-        <S.ScrollDownWrapper
-          data-aos="fade-up"
-          data-aos-duration="1500"
+      {/* ================= 섹션 1: 메인 히어로 ================= */}
+      <S.HeroContainer>
+        <S.HeroContent data-aos="fade-down" data-aos-duration="1200">
+          <S.Title>
+            시대를 변화시킬 <br />
+            <S.HighlightText>새로운 물결, 파아란</S.HighlightText>
+          </S.Title>
+        </S.HeroContent>
+
+        {/* 하단 스크롤 안내 인디케이터 */}
+        <S.ScrollDownBtn
           onClick={handleScrollDown}
+          data-aos="fade-up"
+          data-aos-duration="1200"
+          data-aos-delay="200"
         >
-          <S.ScrollDownText>소개 보기</S.ScrollDownText>
-          <AiOutlineArrowDown size={30} />
-        </S.ScrollDownWrapper>
-      </S.HomeContainer>
-      <div
-        id="next-section"
-        style={{ minHeight: "calc(100vh - 70px)", padding: 0 }}
-      >
-        <Home2 />
-      </div>
+          <S.ScrollDownText>SCROLL DOWN</S.ScrollDownText>
+          <S.ArrowBounce>
+            <AiOutlineArrowDown size={22} />
+          </S.ArrowBounce>
+        </S.ScrollDownBtn>
+      </S.HeroContainer>
+
+      <Home2 />
     </S.HomeSection>
   );
 }
 
 const S = {
-  HomeSection: styled.section`
+  HomeSection: styled.div`
     position: relative;
-    background-color: transparent;
-    background-position: top center;
-    background-repeat: no-repeat;
-    -webkit-user-select: none; /* Safari, Chrome */
-    -webkit-touch-callout: none; /* 모바일에서 텍스트 꾹 누를 때 나오는 메뉴 비활성화 */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+ */
-    user-select: none; /* 표준 속성 */
-    height: 100%;
-
-    @media (max-width: 767px) {
-      padding-top: 0px !important;
-    }
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #ffffff;
   `,
 
-  HomeContainer: styled.section`
-    /* 화면 전체를 덮는 높이 */
-    width: 100%;
-    height: 100vh;
+  HeroContainer: styled.section`
     position: relative;
-
-    /* 요소 중앙 정렬 */
+    width: 100%;
+    min-height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    /* 글자 색상 등 */
-    color: #fff;
     text-align: center;
+    padding: 90px 24px 50px 24px;
+    box-sizing: border-box;
+    background: radial-gradient(
+      ellipse at 50% 30%,
+      rgba(4, 132, 252, 0.09) 0%,
+      rgba(255, 255, 255, 1) 72%
+    );
+
+    @media (max-width: 768px) {
+      padding: 70px 16px 40px 16px;
+      min-height: calc(100vh - 55px);
+    }
+  `,
+
+  HeroContent: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 860px;
+    margin: auto 0;
+    gap: 16px;
   `,
 
   Title: styled.h1`
@@ -94,44 +100,87 @@ const S = {
       }
     `};
     font-family: "HakgyoansimDunggeunmisoTTF-R", sans-serif;
-    font-size: 4rem;
-    font-weight: 700;
-    color: black;
-    margin-bottom: 1rem;
+    font-size: 3.8rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.25;
+    margin: 0;
+    letter-spacing: -1px;
+
     @media (max-width: 768px) {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
     }
   `,
 
-  SubTitle: styled.h2`
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: black;
-    margin-bottom: 2rem;
-    @media (max-width: 768px) {
-      font-size: 1.2rem;
-    }
+  HighlightText: styled.span`
+    color: #0484fc;
+    background: linear-gradient(135deg, #0484fc 0%, #0052cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   `,
 
-  ScrollDownWrapper: styled.div`
+  CorePillList: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
+  `,
+
+  CorePill: styled.span`
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  `,
+
+  ScrollDownBtn: styled.button`
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: transparent;
+    border: none;
     cursor: pointer;
-    margin-top: 3rem;
-    color: black;
-    transition: transform 0.3s ease;
+    margin-top: 24px;
+    color: #0484fc;
+    padding: 0;
+    transition: transform 0.2s ease, color 0.2s ease;
 
     &:hover {
-      transform: translateY(5px);
+      transform: translateY(3px);
+      color: #0052cc;
     }
   `,
 
   ScrollDownText: styled.span`
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: 1px;
-    color: black;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  `,
+
+  ArrowBounce: styled.div`
+    animation: bounce 1.8s infinite ease-in-out;
+
+    @keyframes bounce {
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(6px);
+      }
+      60% {
+        transform: translateY(3px);
+      }
+    }
   `,
 };
 
