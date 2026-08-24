@@ -1,4 +1,3 @@
-import { Row } from "react-bootstrap";
 import { S } from "./Techstack";
 import { IoLogoGitlab } from "react-icons/io5";
 import {
@@ -15,53 +14,98 @@ import {
   SiJsdelivr,
   SiCloudflare,
 } from "react-icons/si";
-import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import { FiArrowRight } from "react-icons/fi";
 
-function DevStack({ handleScrollToSection }: { handleScrollToSection: (id: string) => void }) {
+interface DevStackProps {
+  handleScrollToSection?: (id: string) => void;
+}
+
+function DevStack({ handleScrollToSection }: DevStackProps) {
   const devStack = [
-    { icon: <SiDocker />, name: "Docker" },
-    { icon: <SiKubernetes />, name: "Kubernetes" },
-    { icon: <SiArgo />, name: "ArgoCD" },
-    { icon: <SiGithubactions />, name: "GitHub Actions" },
-    { icon: <IoLogoGitlab />, name: "GitLab-CI" },
-    { icon: <SiGrafana />, name: "Grafana" },
-    { icon: <SiPrometheus />, name: "Prometheus" },
-    { icon: <SiUbuntu />, name: "Ubuntu" },
-    { icon: <SiJsdelivr />, name: "Jsdelivr" },
-    { icon: <SiCloudflare />, name: "Cloudflare" },
-    { icon: <SiNaver />, name: "NCP" },
-    { icon: <SiPostman />, name: "Postman" },
-    { icon: <SiSelenium />, name: "Selenium" },
+    {
+      icon: <SiDocker color="#2496ED" />,
+      name: "Docker",
+      category: "Container",
+    },
+    {
+      icon: <SiKubernetes color="#326CE5" />,
+      name: "Kubernetes",
+      category: "Orchestration",
+    },
+    { icon: <SiArgo color="#EF7B4D" />, name: "ArgoCD", category: "GitOps" },
+    {
+      icon: <SiGithubactions color="#2088FF" />,
+      name: "GitHub Actions",
+      category: "CI / CD",
+    },
+    {
+      icon: <IoLogoGitlab color="#FC6D26" />,
+      name: "GitLab-CI",
+      category: "CI / CD",
+    },
+    {
+      icon: <SiGrafana color="#F46800" />,
+      name: "Grafana",
+      category: "Monitoring",
+    },
+    {
+      icon: <SiPrometheus color="#E6522C" />,
+      name: "Prometheus",
+      category: "Metrics",
+    },
+    {
+      icon: <SiUbuntu color="#E95420" />,
+      name: "Ubuntu",
+      category: "Linux OS",
+    },
+    {
+      icon: <SiCloudflare color="#F38020" />,
+      name: "Cloudflare",
+      category: "CDN / Security",
+    },
+    {
+      icon: <SiJsdelivr color="#E84D3D" />,
+      name: "Jsdelivr",
+      category: "Open CDN",
+    },
+    { icon: <SiNaver color="#03C75A" />, name: "NCP", category: "Cloud Infra" },
+    {
+      icon: <SiPostman color="#FF6C37" />,
+      name: "Postman",
+      category: "API Testing",
+    },
+    {
+      icon: <SiSelenium color="#43B02A" />,
+      name: "Selenium",
+      category: "QA Automation",
+    },
   ];
 
   return (
-    <S.Section>
-      <S.ButtonWrapper onClick={() => handleScrollToSection("section2")}>
-        <IoIosArrowUp />
-        <S.ScrollButton>언어 • 프레임워크</S.ScrollButton>
-      </S.ButtonWrapper>
+    <S.SectionWrapper>
+      <S.ContentContainer>
+        {/* 헤더 정보 */}
+        <S.HeaderArea>
+          <S.CategoryChip>INFRASTRUCTURE & DEVOPS</S.CategoryChip>
+          <S.HeadingTitle>DevOps 및 인프라</S.HeadingTitle>
+          <S.HeadingDesc>
+            지속적인 배포(CI/CD)와 안정적인 모니터링 체계를 바탕으로 유저에게
+            무중단 서비스를 제공합니다.
+          </S.HeadingDesc>
+        </S.HeaderArea>
 
-      <S.Heading>
-        <strong className="important">DevOps • 인프라</strong>
-      </S.Heading>
-      <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-        {devStack.map((tech, index) => (
-          <S.Col xs={4} md={2} key={index}>
-            <S.Icons>
-              {tech.icon}
-              <p style={{ margin: "10px 0px 0px 0px", fontSize: "14px" }}>
-                {tech.name}
-              </p>
-            </S.Icons>
-          </S.Col>
-        ))}
-      </Row>
-
-      <S.ButtonWrapper onClick={() => handleScrollToSection("section4")}>
-        <S.ScrollButton>협업 • 생산성</S.ScrollButton>
-        <IoIosArrowDown />
-      </S.ButtonWrapper>
-    </S.Section>
+        {/* 모던 스택 카드 그리드 */}
+        <S.GridContainer>
+          {devStack.map((tech, index) => (
+            <S.TechCard key={index}>
+              <S.IconWrapper className="tech-icon">{tech.icon}</S.IconWrapper>
+              <S.TechName>{tech.name}</S.TechName>
+              <S.TechTag>{tech.category}</S.TechTag>
+            </S.TechCard>
+          ))}
+        </S.GridContainer>
+      </S.ContentContainer>
+    </S.SectionWrapper>
   );
 }
 

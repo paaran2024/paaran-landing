@@ -11,28 +11,28 @@ button:focus {
 }
 
 /* --------- */
-/*Scrollbar  */
+/* Scrollbar Hide (스크롤 기능은 유지하면서 스크롤바 완전 숨김) */
 /* --------- */
-/* 스크롤바 자체의 너비 설정 */
+html, body {
+  -ms-overflow-style: none !important; /* IE, Edge */
+  scrollbar-width: none !important; /* Firefox */
+}
+
 ::-webkit-scrollbar {
-  width: 7px;
+  display: none !important; /* Chrome, Safari, Opera */
+  width: 0 !important;
+  height: 0 !important;
 }
 
-/* Track 스크롤바가 움직이는 영역의 배경색을 설정 */
-::-webkit-scrollbar-track {
-  background: white;
+* {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
 }
 
-/* Handle 실제로 스크롤을 끌고 다닐 수 있는 부분의 스타일을 설정 */
-::-webkit-scrollbar-thumb {
-  background: #0484fc;
-  border-radius: 12px;
-}
-
-/* Handle on hover 손잡이(thumb)**에 마우스를 올렸을 때(hover 상태) 스타일을 */
-::-webkit-scrollbar-thumb:hover {
-  background: #2FADFC;
-  border-radius: 12px;
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 /* --------- */
